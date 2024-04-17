@@ -3,7 +3,6 @@ package Users;
 public class User {
     private String username;
     private String password;
-    // Additional attributes like profile information
 
     public User(String username, String password) {
         this.username = username;

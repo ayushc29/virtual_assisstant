@@ -28,10 +28,10 @@ public class Chat {
         gbc.gridx = 0;
         gbc.gridy = 0;
         gbc.gridwidth = 2;
-        gbc.insets = new Insets(10, 10, 10, 10); // Add some padding
+        gbc.insets = new Insets(10, 10, 10, 10);
 
         JLabel titleLabel = new JLabel("Virtual Assistant");
-        titleLabel.setFont(new Font("Aptos", Font.BOLD, 20)); // Custom font and size
+        titleLabel.setFont(new Font("Aptos", Font.BOLD, 20));
         loginPanel.add(titleLabel, gbc);
 
         gbc.gridy++;
@@ -79,10 +79,10 @@ public class Chat {
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.CENTER;
         signupButton = new JButton("Sign Up");
-        signupButton.setPreferredSize(new Dimension(100, 30)); // Custom button size
-        signupButton.setBackground(new Color(50, 150, 250)); // Custom button color
-        signupButton.setForeground(Color.WHITE); // Custom text color
-        signupButton.setFocusPainted(false); // Remove focus border
+        signupButton.setPreferredSize(new Dimension(100, 30));
+        signupButton.setBackground(new Color(50, 150, 250));
+        signupButton.setForeground(Color.WHITE);
+        signupButton.setFocusPainted(false);
         signupButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 signup();
@@ -92,7 +92,7 @@ public class Chat {
 
         frame.add(loginPanel);
         frame.setSize(400, 300);
-        frame.setLocationRelativeTo(null); // Center the frame on screen
+        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
@@ -145,7 +145,6 @@ public class Chat {
         String model = "gpt-3.5-turbo";
 
         try {
-            // Create the HTTP POST request
             URL obj = new URL(url);
             HttpURLConnection con = (HttpURLConnection) obj.openConnection();
             con.setRequestMethod("POST");
@@ -186,9 +185,9 @@ public class Chat {
             // Hide login panel
             if (panel != null) {
                 Container contentPane = frame.getContentPane();
-                contentPane.remove(panel); // Remove the panel from the content pane
-                contentPane.revalidate(); // Revalidate the content pane to reflect changes
-                contentPane.repaint(); // Repaint the content pane
+                contentPane.remove(panel);
+                contentPane.revalidate();
+                contentPane.repaint();
             }
             // Initialize and display the chat panel
             initializeChatPanel();
@@ -207,7 +206,7 @@ public class Chat {
         panel = new JPanel(new BorderLayout());
 
         inputField = new JTextField();
-        inputField.setPreferredSize(new Dimension(300, 30)); // Adjust the width of the input field
+        inputField.setPreferredSize(new Dimension(300, 30));
 
         inputField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -225,11 +224,11 @@ public class Chat {
         outputArea = new JTextArea();
         outputArea.setEditable(false);
         outputArea.setLineWrap(true);
-        outputArea.setWrapStyleWord(true); // Word wrapping
+        outputArea.setWrapStyleWord(true);
 
         JScrollPane scrollPane = new JScrollPane(outputArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER); // Disable horizontal scroll bar
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
 
         JPanel inputPanel = new JPanel(new BorderLayout());
         inputPanel.add(inputField, BorderLayout.CENTER);
