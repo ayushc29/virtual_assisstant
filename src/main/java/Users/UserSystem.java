@@ -8,7 +8,7 @@ import java.util.Map;
 
 public class UserSystem {
     private Map<String, String> users; // Map to store hashed usernames and hashed passwords
-    private static final String USERS_FILE = "C:\\Users\\HP\\Desktop\\virtual_assisstant\\src\\main\\java\\Users\\users.txt";
+    private static final String USERS_FILE = "user.text_path";
 
     public UserSystem() {
         users = new HashMap<>();

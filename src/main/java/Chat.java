@@ -131,7 +131,7 @@ public class Chat {
             response = response.replace("\\n", "\n");
             response = response.replace("\\\"", "\"");
             outputArea.append("User: " + input + "\n");
-            outputArea.append("ChatGPT: " + response + "\n");
+            outputArea.append("ChatGPT: " + response + "\n\n");
             inputField.setText("");
             // Resize the JTextArea
             outputArea.setPreferredSize(new Dimension(outputArea.getWidth(), outputArea.getPreferredSize().height + outputArea.getFont().getSize() * 2));
