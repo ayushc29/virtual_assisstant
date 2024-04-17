@@ -141,7 +141,7 @@ public class Chat {
 
     private static String chatGPT(String message) {
         String url = "https://api.openai.com/v1/chat/completions";
-        String apiKey = "";
+        String apiKey = "YOUR-API-KEY";
         String model = "gpt-3.5-turbo";
 
         try {
@@ -207,7 +207,8 @@ public class Chat {
         panel = new JPanel(new BorderLayout());
 
         inputField = new JTextField();
-        inputField.setPreferredSize(new Dimension(1200, 100));
+        inputField.setPreferredSize(new Dimension(300, 30)); // Adjust the width of the input field
+
         inputField.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 sendMessage();
@@ -225,23 +226,24 @@ public class Chat {
         outputArea.setEditable(false);
         outputArea.setLineWrap(true);
         outputArea.setWrapStyleWord(true); // Word wrapping
-        outputArea.setColumns(40); // Set initial columns
-        outputArea.setRows(10); // Set initial rows
+
         JScrollPane scrollPane = new JScrollPane(outputArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
-        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED); // Add horizontal scroll bar
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER); // Disable horizontal scroll bar
 
-        panel.add(scrollPane, BorderLayout.CENTER);
+        JPanel inputPanel = new JPanel(new BorderLayout());
+        inputPanel.add(inputField, BorderLayout.CENTER);
+        inputPanel.add(submitButton, BorderLayout.EAST);
 
-        JPanel inputPanel = new JPanel();
-        inputPanel.add(inputField);
-        inputPanel.add(submitButton);
         panel.add(scrollPane, BorderLayout.CENTER);
         panel.add(inputPanel, BorderLayout.SOUTH);
 
         frame.add(panel);
         frame.setVisible(true);
     }
+
+
+
 
     private static String extractContentFromResponse(String response) {
         try {
